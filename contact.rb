@@ -5,39 +5,25 @@ class Contact
   attr_reader :id
 
   @@next_id = 100
+  @@contacts = []
 
-  def initialize(first_name, last_name, email, note)
-    @first_name = first_name
-    @last_name = last_name
-    @email = email
-    @note = note
-
-    @id = @@next_id
-    @@next_id += 1
-  end
 
   # This method should call the initializer,
   # store the newly created contact, and then return it
-  def self.create
-
+  def self.create(first_name, last_name, email, note)
+    new_contact = Contact.new(first_name, last_name, email, note)
+    @@contacts << new_contact
+    return new_contact
   end
 
   # This method should return all of the existing contacts
   def self.all
-
+    @@contacts
   end
 
   # This method should accept an id as an argument
   # and return the contact who has that id
   def self.find
-
-  end
-
-  # This method should allow you to specify
-  # 1. which of the contact's attributes you want to update
-  # 2. the new value for that attribute
-  # and then make the appropriate change to the contact
-  def update
 
   end
 
@@ -53,6 +39,27 @@ class Contact
   def self.delete_all
 
   end
+
+
+  def initialize(first_name, last_name, email, note)
+    @first_name = first_name
+    @last_name = last_name
+    @email = email
+    @note = note
+
+    @id = @@next_id
+    @@next_id += 1
+  end
+
+
+  # This method should allow you to specify
+  # 1. which of the contact's attributes you want to update
+  # 2. the new value for that attribute
+  # and then make the appropriate change to the contact
+  def update
+
+  end
+
 
   def full_name
 
