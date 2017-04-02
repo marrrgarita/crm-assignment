@@ -23,17 +23,23 @@ class Contact
 
   # This method should accept an id as an argument
   # and return the contact who has that id
-  def self.find
+  def self.find(id)
+    @@contacts.find { |contact| contact.id == id}
+  end
 
+  def self.find_by_firstname(first_name)
+    @@contacts.find { |contact| (contact.first_name).downcase == first_name }
   end
 
   # This method should work similarly to the find method above
   # but it should allow you to search for a contact using attributes other than id
   # by specifying both the name of the attribute and the value
   # eg. searching for 'first_name', 'Betty' should return the first contact named Betty
-  def self.find_by
-
-  end
+  # def self.find_by(attribute, label)
+  #   if attribute == "first_name"
+  #     @@contacts.find { |contact| contact.first_name == label}
+  #
+  # end
 
   # This method should delete all of the contacts
   def self.delete_all
