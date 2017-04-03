@@ -71,13 +71,21 @@ class Contact
   # 1. which of the contact's attributes you want to update
   # 2. the new value for that attribute
   # and then make the appropriate change to the contact
-  def update
-
+  def update(attribute, new_value)
+    case attribute
+    when "first_name"
+      @first_name = new_value
+    when "last_name"
+      @last_name = new_value
+    when "email"
+      @email = new_value
+    when "note"
+      @note = new_value
+    end
   end
 
-
   def full_name
-
+    "#{first_name} #{last_name}"
   end
 
   # This method should delete the contact
