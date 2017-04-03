@@ -27,10 +27,6 @@ class Contact
     @@contacts.find { |contact| contact.id == id}
   end
 
-  def self.find_by_firstname(first_name)
-    @@contacts.find { |contact| (contact.first_name).downcase == first_name }
-  end
-
   # This method should work similarly to the find method above
   # but it should allow you to search for a contact using attributes other than id
   # by specifying both the name of the attribute and the value
@@ -91,7 +87,7 @@ class Contact
   # This method should delete the contact
   # HINT: Check the Array class docs for built-in methods that might be useful here
   def delete
-
+      @@contacts.delete(self)
   end
 
   # Feel free to add other methods here, if you need them.
