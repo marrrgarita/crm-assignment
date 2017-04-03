@@ -75,6 +75,13 @@ class CRM
 
   def delete_contact
 
+    print 'Enter a contact to delete:'
+
+    id = gets.to_i
+
+    contact_to_delete = Contact.find(id)
+    contact_to_delete.delete
+
   end
 
   def display_all_contacts
