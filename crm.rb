@@ -86,9 +86,29 @@ class CRM
 
   def display_all_contacts
 
+    all_contacts = Contact.all
+    all_contacts.each do |contact|
+      puts "Name: #{contact.full_name}"
+      puts "Email: #{contact.email}"
+      puts "Note: #{contact.note}"
+    end
+
   end
 
   def search_by_attribute
+    puts 'Please select the attribute to search by'
+    puts '[first_name] to search by the first name'
+    puts '[last-name] to search by the last name'
+    puts '[email] to search by the e-mail address'
+    puts '[note] to search by the note'
+
+    attribute_to_search = gets.chomp
+
+    puts "What is the #{attribute_to_search} you are searching for?"
+
+    label = gets.chomp
+
+    Contact.find_by("#{attribute_to_search}", "#{label}")
 
   end
 
